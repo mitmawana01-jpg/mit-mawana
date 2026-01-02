@@ -1,93 +1,90 @@
 
 import React from 'react';
-import { Rocket, Github, CheckSquare, Folder, FileCode, FileText, MousePointer2, ExternalLink, Globe, Zap, CheckCircle2 } from 'lucide-react';
+import { Rocket, Globe, Zap, CheckCircle2, Award, ExternalLink, ShieldCheck, BarChart3, ChevronRight, Share2, AlertTriangle, RefreshCw } from 'lucide-react';
 
 const AdminGuide: React.FC = () => {
   return (
-    <div className="py-16 bg-gray-50 min-h-screen">
+    <div className="py-16 bg-white min-h-screen font-sans">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="bg-slate-900 rounded-3xl p-10 md:p-16 text-white mb-12 shadow-xl border border-white/10">
-          <h1 className="text-4xl font-black mb-4 flex items-center">
-            <Rocket className="mr-4 text-blue-500" size={40} />
-            MIT Final Steps
-          </h1>
-          <p className="text-gray-400 text-lg">
-            GitHub पर अपलोड होने के बाद, अब अपनी वेबसाइट को दुनिया को दिखाने का समय है।
-          </p>
+        
+        {/* Celebration Header */}
+        <div className="bg-gradient-to-br from-blue-700 to-indigo-900 rounded-[3rem] p-12 text-white mb-12 shadow-2xl relative overflow-hidden">
+          <div className="absolute right-0 top-0 opacity-10">
+            <Award size={300} />
+          </div>
+          <div className="relative z-10 text-center md:text-left">
+            <div className="inline-flex items-center space-x-2 bg-white/20 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+              <ShieldCheck size={14} className="text-green-400" />
+              <span>Deployment Active</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
+              MIT Website <span className="text-blue-300">Manager</span>
+            </h1>
+            <p className="text-blue-100 text-lg md:text-xl font-medium max-w-2xl mb-8">
+              यहाँ से आप अपनी वेबसाइट की सेटिंग्स और समस्याओं को ठीक कर सकते हैं।
+            </p>
+          </div>
         </div>
 
-        {/* Step 3: Vercel Deployment */}
-        <div className="bg-white p-8 md:p-12 rounded-[3rem] shadow-xl border border-indigo-100 mb-12">
-          <div className="flex items-center space-x-4 mb-8">
-            <div className="bg-indigo-600 text-white p-4 rounded-2xl shadow-lg shadow-indigo-200">
-              <Globe size={32} />
+        {/* TROUBLESHOOTING SECTION */}
+        <div className="bg-amber-50 border border-amber-200 rounded-[2.5rem] p-8 mb-12">
+          <div className="flex items-center space-x-3 mb-6">
+            <AlertTriangle className="text-amber-600" size={28} />
+            <h2 className="text-2xl font-black text-amber-900">White Screen आ रही है?</h2>
+          </div>
+          <div className="space-y-4">
+            <div className="bg-white p-4 rounded-2xl flex items-start space-x-4 shadow-sm">
+              <div className="bg-amber-100 p-2 rounded-lg text-amber-600 font-bold">1</div>
+              <p className="text-gray-700 text-sm">
+                <b>Environment Variables चेक करें:</b> Vercel डैशबोर्ड पर जाएँ, Settings > Environment Variables में देखें कि <code>API_KEY</code> सही से डली है या नहीं।
+              </p>
             </div>
-            <div>
-              <h2 className="text-3xl font-black text-gray-900 tracking-tight">Step 3: वेबसाइट को Live करें</h2>
-              <p className="text-indigo-600 font-bold text-sm uppercase tracking-widest">Free Hosting with Vercel</p>
+            <div className="bg-white p-4 rounded-2xl flex items-start space-x-4 shadow-sm">
+              <div className="bg-amber-100 p-2 rounded-lg text-amber-600 font-bold">2</div>
+              <p className="text-gray-700 text-sm">
+                <b>Redeploy करें:</b> अगर आपने API_KEY बाद में डाली है, तो Vercel में <b>"Deployments"</b> टैब पर जाकर सबसे ऊपर वाले वर्जन के बगल में 3 डॉट्स पर क्लिक करें और <b>"Redeploy"</b> चुनें।
+              </p>
+            </div>
+            <div className="bg-white p-4 rounded-2xl flex items-start space-x-4 shadow-sm">
+              <div className="bg-amber-100 p-2 rounded-lg text-amber-600 font-bold">3</div>
+              <p className="text-gray-700 text-sm">
+                <b>Browser Cache साफ़ करें:</b> कभी-कभी पुराना कोड ब्राउज़र में फंसा रहता है। <code>Ctrl + F5</code> दबाकर रिफ्रेश करें।
+              </p>
             </div>
           </div>
+        </div>
 
-          <div className="space-y-8">
-            <div className="flex items-start space-x-6">
-              <div className="bg-indigo-50 text-indigo-600 w-10 h-10 rounded-full flex items-center justify-center font-black flex-shrink-0 border border-indigo-100">1</div>
-              <div>
-                <p className="text-gray-900 font-bold text-lg mb-1">Vercel.com पर जाएँ</p>
-                <p className="text-gray-600">वहाँ <b>"Continue with GitHub"</b> बटन दबाकर लॉगिन करें।</p>
-              </div>
+        {/* Standard Dashboard Features */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 shadow-sm">
+            <div className="bg-purple-100 text-purple-600 w-12 h-12 rounded-2xl flex items-center justify-center mb-6">
+              <Globe size={24} />
             </div>
-
-            <div className="flex items-start space-x-6">
-              <div className="bg-indigo-50 text-indigo-600 w-10 h-10 rounded-full flex items-center justify-center font-black flex-shrink-0 border border-indigo-100">2</div>
-              <div>
-                <p className="text-gray-900 font-bold text-lg mb-1">Project Import करें</p>
-                <p className="text-gray-600">आपको वहाँ अपना <code>mit-site</code> नाम का प्रोजेक्ट दिखेगा, उसके सामने <b>"Import"</b> बटन दबाएं।</p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-6">
-              <div className="bg-indigo-50 text-indigo-600 w-10 h-10 rounded-full flex items-center justify-center font-black flex-shrink-0 border border-indigo-100">3</div>
-              <div>
-                <p className="text-gray-900 font-bold text-lg mb-1">API Key सेटअप करें (जरूरी)</p>
-                <p className="text-gray-600 mb-4">नीचे 'Environment Variables' का बटन होगा, उसे खोलें और ये भरें:</p>
-                <div className="bg-slate-900 p-5 rounded-2xl font-mono text-sm text-blue-300 border border-white/10 shadow-inner">
-                  <div className="flex justify-between mb-2">
-                    <span className="text-gray-500 uppercase text-[10px] font-bold">Variable Name</span>
-                    <span className="text-gray-500 uppercase text-[10px] font-bold">Value</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-white font-bold">API_KEY</span>
-                    <span className="text-green-400">अपनी Gemini API Key यहाँ डालें</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-6">
-              <div className="bg-indigo-50 text-indigo-600 w-10 h-10 rounded-full flex items-center justify-center font-black flex-shrink-0 border border-indigo-100">4</div>
-              <div>
-                <p className="text-gray-900 font-bold text-lg mb-1">Deploy बटन दबाएं</p>
-                <p className="text-gray-600">बस <b>"Deploy"</b> पर क्लिक करें। 1 मिनट के अंदर आपकी वेबसाइट का लिंक (जैसे: mit-site.vercel.app) आपको मिल जाएगा!</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 p-6 bg-green-50 rounded-3xl border border-green-100 flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Zap className="text-green-600 animate-pulse" />
-              <p className="text-green-800 font-bold">सब कुछ तैयार है! आपकी वेबसाइट अब ऑनलाइन जाने के लिए रेडी है।</p>
-            </div>
-            <a href="https://vercel.com/new" target="_blank" className="bg-green-600 text-white px-6 py-3 rounded-xl font-bold flex items-center space-x-2 shadow-lg shadow-green-200">
-              <span>Go to Vercel</span>
-              <ExternalLink size={18} />
+            <h3 className="text-xl font-black mb-4 text-gray-900">Add Custom Domain</h3>
+            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              अगर आप <code>.com</code> डोमेन जोड़ना चाहते हैं, तो Vercel पर <b>"Add Domain"</b> बटन का उपयोग करें।
+            </p>
+            <a href="https://vercel.com/docs/concepts/projects/domains" target="_blank" className="text-purple-600 font-bold text-sm flex items-center hover:underline">
+              Tutorial <ChevronRight size={16} />
             </a>
           </div>
+
+          <div className="bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 shadow-sm">
+            <div className="bg-blue-100 text-blue-600 w-12 h-12 rounded-2xl flex items-center justify-center mb-6">
+              <BarChart3 size={24} />
+            </div>
+            <h3 className="text-xl font-black mb-4 text-gray-900">Redeploy Site</h3>
+            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              किसी भी बदलाव के बाद वेबसाइट को रिफ्रेश करने के लिए Redeploy बटन का उपयोग करें।
+            </p>
+            <button onClick={() => window.location.reload()} className="text-blue-600 font-bold text-sm flex items-center hover:underline">
+              <RefreshCw size={14} className="mr-1" /> Refresh Now
+            </button>
+          </div>
         </div>
 
-        {/* Support Section */}
-        <div className="text-center text-gray-500 text-sm">
-          <p>अगर कोई दिक्कत आए, तो GitHub Repo का नाम चेक करें।</p>
+        <div className="mt-12 text-center">
+          <p className="text-gray-400 text-xs font-medium uppercase tracking-[0.2em]">Website Managed by Neeraj Kumar @ MIT</p>
         </div>
       </div>
     </div>

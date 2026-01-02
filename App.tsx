@@ -4,23 +4,23 @@ import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-ro
 import { 
   Menu, X, Phone, Mail, MapPin, 
   Facebook, Instagram, Twitter, MessageCircle, 
-  ShieldCheck, Search, Settings
+  Search, Settings
 } from 'lucide-react';
-import Home from './pages/Home';
-import Courses from './pages/Courses';
-import About from './pages/About';
-import Gallery from './pages/Gallery';
-import Contact from './pages/Contact';
-import Blog from './pages/Blog';
-import BlogPostDetail from './pages/BlogPostDetail';
-import AdminGuide from './pages/AdminGuide';
-import Chatbot from './components/Chatbot';
-import { LOGO_URL, CONTACT_INFO } from './constants';
+
+import Home from './pages/Home.tsx';
+import Courses from './pages/Courses.tsx';
+import About from './pages/About.tsx';
+import Gallery from './pages/Gallery.tsx';
+import Contact from './pages/Contact.tsx';
+import Blog from './pages/Blog.tsx';
+import BlogPostDetail from './pages/BlogPostDetail.tsx';
+import AdminGuide from './pages/AdminGuide.tsx';
+import Chatbot from './components/Chatbot.tsx';
+import { LOGO_URL, CONTACT_INFO } from './constants.tsx';
 
 const Logo = ({ size = "normal" }: { size?: "normal" | "large" }) => {
   const [imageError, setImageError] = useState(false);
   const containerClass = size === "large" ? "space-x-4" : "space-x-2";
-  const iconClass = size === "large" ? "p-3 text-2xl" : "p-2 text-xl";
   const textClass = size === "large" ? "text-2xl" : "text-xl";
 
   if (LOGO_URL && !imageError) {
@@ -43,7 +43,7 @@ const Logo = ({ size = "normal" }: { size?: "normal" | "large" }) => {
 
   return (
     <div className={`flex items-center ${containerClass}`}>
-      <div className={`bg-blue-600 text-white rounded-lg font-bold shadow-lg transform hover:scale-105 transition-transform ${iconClass}`}>
+      <div className="bg-blue-600 text-white rounded-lg font-bold shadow-lg p-2 text-xl">
         MIT
       </div>
       <span className={`font-extrabold tracking-tight ${textClass} ${size === "large" ? "text-white" : "text-gray-800"}`}>
@@ -54,7 +54,7 @@ const Logo = ({ size = "normal" }: { size?: "normal" | "large" }) => {
 };
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const navLinks = [
@@ -95,7 +95,6 @@ const Navbar = () => {
             <button 
               onClick={() => setIsOpen(!isOpen)} 
               className="text-gray-600 p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              aria-label="Toggle Menu"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -103,7 +102,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 shadow-xl">
           <div className="px-4 pt-4 pb-6 space-y-2">
@@ -141,11 +139,11 @@ const Footer = () => (
   <footer className="bg-slate-900 text-gray-300 pt-16 pb-8">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="col-span-1 md:col-span-2">
-        <Link to="/" className="inline-block mb-6">
+        <div className="inline-block mb-6">
           <Logo size="large" />
-        </Link>
+        </div>
         <p className="mb-6 max-w-sm text-gray-400 leading-relaxed">
-          Mawana Institute of Technology (MIT) is a premier computer education center dedicated to empowering students with the latest technical skills in AI, Cyber Security, and more.
+          Mawana Institute of Technology (MIT) is a premier computer education center.
         </p>
         <div className="flex space-x-5">
           <a href="#" className="bg-white/5 p-3 rounded-full hover:bg-blue-600 hover:text-white transition-all"><Facebook size={20} /></a>
@@ -212,7 +210,6 @@ const App: React.FC = () => {
           target="_blank" 
           rel="noopener noreferrer"
           className="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:bg-blue-700 hover:scale-110 active:scale-95 transition-all z-40 animate-bounce"
-          aria-label="WhatsApp Us"
         >
           <MessageCircle size={30} />
         </a>
