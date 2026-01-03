@@ -1,11 +1,12 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { 
   Menu, X, Phone, Mail, MapPin, 
   Facebook, Instagram, Twitter, MessageCircle, 
   Search, Settings
 } from 'lucide-react';
+import { inject } from '@vercel/analytics';
 
 import Home from './pages/Home.tsx';
 import Courses from './pages/Courses.tsx';
@@ -187,6 +188,11 @@ const Footer = () => (
 );
 
 const App: React.FC = () => {
+  useEffect(() => {
+    // Initialize Vercel Analytics
+    inject();
+  }, []);
+
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
