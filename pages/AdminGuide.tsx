@@ -36,7 +36,7 @@ const AdminGuide: React.FC = () => {
             <div className="bg-white p-4 rounded-2xl flex items-start space-x-4 shadow-sm">
               <div className="bg-amber-100 p-2 rounded-lg text-amber-600 font-bold">1</div>
               <p className="text-gray-700 text-sm">
-                <b>Environment Variables चेक करें:</b> Vercel डैशबोर्ड पर जाएँ, Settings > Environment Variables में देखें कि <code>API_KEY</code> सही से डली है या नहीं।
+                <b>Environment Variables चेक करें:</b> Vercel डैशबोर्ड पर जाएँ, Settings {'>'} Environment Variables में देखें कि <code>API_KEY</code> सही से डली है या नहीं।
               </p>
             </div>
             <div className="bg-white p-4 rounded-2xl flex items-start space-x-4 shadow-sm">

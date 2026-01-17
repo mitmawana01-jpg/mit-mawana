@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { 
   Menu, X, Phone, Mail, MapPin, 
   Facebook, Instagram, Twitter, MessageCircle, 
@@ -205,6 +206,7 @@ const App: React.FC = () => {
         </main>
         <Footer />
         <Chatbot />
+        <SpeedInsights />
         <a 
           href={`https://wa.me/${CONTACT_INFO.PHONE_1.replace(/[^0-9]/g, '')}`} 
           target="_blank" 
